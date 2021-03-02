@@ -10,6 +10,8 @@ import kotlinx.android.synthetic.main.fragment_second.*
 
 class SecondFragment : Fragment() {
 
+    private var secondAge = 0
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,6 +29,12 @@ class SecondFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+
+        arguments?.let {
+            secondAge = SecondFragmentArgs.fromBundle(it).age
+            println(secondAge)
+        }
 
         secondfragmentButton.setOnClickListener {
             val action = SecondFragmentDirections.actionSecondFragmentToFirstFragment()
